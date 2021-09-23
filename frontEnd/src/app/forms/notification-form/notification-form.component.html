@@ -1,0 +1,44 @@
+<div class="container">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <p>
+            <label>First Name</label>
+            <input [ngClass]="{'input-error': profileForm.controls.firstName.errors}" 
+                placeholder="john" type="text" formControlName="firstName">
+        </p>
+        <p>
+            <label>Last Name</label>
+            <input [ngClass]="{'input-error': profileForm.controls.lastName.errors}" 
+                placeholder="smith" type="text" formControlName="lastName">
+        </p>
+
+        <p>
+            <label>How would you prefer to be notified?</label>
+        </p>
+        <p>
+            <input type="radio" value='{{contactType.Email}}' formControlName="preferredContact">
+                <span>Email</span>
+            <input type="radio" value='{{contactType.Phone}}' formControlName="preferredContact">
+                <span>Phone Number</span>
+        </p>
+        <p>
+            <label>Email</label>
+            <input [ngClass]="{'input-error': profileForm.controls.email.errors}" 
+                placeholder="johnsmith@gmail.com" type="text" formControlName="email">
+        </p>
+        <p>
+            <label>Phone</label>
+            <input mat-hint [ngClass]="{'input-error': profileForm.controls.phone.errors}" 
+                placeholder="7774443333" type="text" formControlName="phone">
+        </p>
+        <p>
+            <label>Supervisor</label>
+            <select formControlName="supervisor">
+                <option value="">Choose supervisor</option>
+                <option *ngFor="let supervisor of supervisors">{{supervisor}}</option>
+             </select>
+        </p>
+
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+    </form>
+    <div>{{submissionMessage}}</div>
+</div>
