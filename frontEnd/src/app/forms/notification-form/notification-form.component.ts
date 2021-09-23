@@ -74,8 +74,8 @@ export class NotificationFormComponent implements OnInit {
     console.log(this.profileForm);
     console.log(this.profileForm.controls);
 
-    // if (this.profileForm.valid) { // valid inputs. Register for notifications
-    if (true) { // valid inputs. Register for notifications
+    if (this.profileForm.valid) { // valid inputs. Register for notifications
+    // if (true) { // valid inputs. Register for notifications
         const firstName = this.profileForm.get('firstName')?.value;
       const lastName = this.profileForm.get('lastName')?.value;
       const preferredContact = this.profileForm.get('preferredContact')?.value;
